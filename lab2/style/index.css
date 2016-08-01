@@ -16,3 +16,7 @@ header {
     color: white;
     width: 100%;
 }
+
+.photo {
+    border-style: solid;
+}
