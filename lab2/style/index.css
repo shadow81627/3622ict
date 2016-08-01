@@ -5,6 +5,16 @@
 }
 #loginButton {
     float: right;
+    margin: 6px;
+}
+
+#searchBox {
+      position: relative;
+      
+}
+
+.searchField {
+    float: right;
 }
 
 footer {
@@ -42,7 +52,7 @@ img {
 }
 
 
-@media only screen and (max-width: 700px){
+/*@media only screen and (max-width: 700px){
     .photo {
     border-style: solid;
     float: left;
@@ -62,4 +72,4 @@ img {
     text-align: center;
     width: 100%;
     }
-}
+} */
