@@ -17,6 +17,16 @@ header {
     width: 100%;
 }
 
+img {
+    display: block;
+    height: 300px;
+    margin: auto;
+    width: 300px;
+}
+
 .photo {
     border-style: solid;
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
 }
