@@ -21,10 +21,16 @@
   </head>
   <body>
     <header>
-        <h1>My Photo Album</h1>
         <button id="loginButton">Login</button>
+        <h1>My Photo Album</h1>
+        
     </header>
-    <article>
+    
+    <div id="content">
+         <form action="">
+          <input type="text" name="search" placeholder="Type your query here"><br>
+          <input type="submit" value="Search">
+        </form> 
         <div class="photo">
             <img src="photos/DSC01049.JPG"></img>
             <p>City View</p>
@@ -45,7 +51,7 @@
             <img src="photos/DSC05750.jpg"></img>
             <p>Sun rise</p>
         </div>
-    </article>
+    </div>
     <footer>Damien Robinson</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
