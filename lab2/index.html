@@ -20,40 +20,41 @@
     <![endif]-->
   </head>
   <body>
-    <header>
-        <button id="loginButton">Login</button>
-        <h1>My Photo Album</h1>
-        
-    </header>
-    <div id="search">
-        <form action="">
-          <input type="text" name="search" placeholder="Type your query here">
-          <input type="submit" value="Search">
-        </form> 
+    <div id="header">
+        My Photo Album
+        <div id="login">
+            <button>Login</button>
+        </div>
     </div>
-    <div id="content">
-        <figure>
-            <img src="photos/DSC01049.JPG" alt="City View"/>
-            <figcaption>City View</figcaption>
-        </figure>
-        <figure>
-            <img src="photos/DSC01066.JPG" alt="Ferris Wheel"/>
-            <figcaption>Ferris Wheel</figcaption>
-        </figure>
-        <figure>
-            <img src="photos/DSC02511.jpg" alt="A building in the forbidden city"/>
-            <figcaption>A Building in the forbidden city with extra long text</figcaption>
-        </figure>
-        <figure>
-            <img src="photos/DSC03810.jpg" alt="City from Mt Gravett look out"/>
-            <figcaption>City from Mt Gravett look out</figcaption>
-        </figure>
-        <figure>
-            <img src="photos/DSC05750.jpg" alt="Sun rise"/>
-            <figcaption>Sun rise</figcaption>
-        </figure>
-    </div>
-    <footer>By Damien Robinson</footer>
+        <div id="content">
+            <div id="search">
+                <form action="">
+                  <input type="text" name="search" placeholder="Type your query here">
+                  <input type="submit" value="Search">
+                </form> 
+            </div>
+            <figure>
+                <a href="photos/DSC01049.JPG"><img src="photos/DSC01049.JPG" alt="City View"/><a/>
+                <figcaption>City View</figcaption>
+            </figure>
+            <figure>
+                <a href="photos/DSC01066.JPG"><img src="photos/DSC01066.JPG" alt="Ferris Wheel"/></a>
+                <figcaption>Ferris Wheel</figcaption>
+            </figure>
+            <figure>
+                <a href="photos/DSC02511.jpg"><img src="photos/DSC02511.jpg" alt="A building in the forbidden city"/></a>
+                <figcaption>A Building in the forbidden city with extra long text</figcaption>
+            </figure>
+            <figure>
+                <a href="photos/DSC03810.jpg"><img src="photos/DSC03810.jpg" alt="City from Mt Gravett look out"/></a>
+                <figcaption>City from Mt Gravett look out</figcaption>
+            </figure>
+            <figure>
+                <a href="photos/DSC05750.jpg"><img src="photos/DSC05750.jpg" alt="Sun rise"/></a>
+                <figcaption>Sun rise</figcaption>
+            </figure>
+        </div>
+    <div id="footer">By Damien Robinson</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
