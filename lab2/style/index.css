@@ -37,20 +37,20 @@ header {
 
 img {
     display: block;
-    height: 250px;
-    margin: auto;
-    width: 250px;
+    height: 95%;
+    margin: 2.5%;
+    width: 95%;
 }
 
-.photo {
+figure {
     border-style: solid;
     float: left;
-    margin: 30px;
-    padding: 0 6px;
-    text-align: center;
     width: 25%;
 }
 
+figcaption {
+    text-align: center;
+}
 
 /*@media only screen and (max-width: 700px){
     .photo {
