@@ -1,20 +1,19 @@
 #content {
     margin-left: auto;
     margin-right: auto;
-    width: 1000px
+    width: 100%;
 }
 #loginButton {
     float: right;
     margin: 6px;
 }
 
-#searchBox {
-      position: relative;
-      
+#search {
+      float: right;
 }
 
-.searchField {
-    float: right;
+body {
+    margin: auto;
 }
 
 footer {
@@ -25,6 +24,7 @@ footer {
     left:0px;
     bottom:0px;
 }
+
 h1 {
    text-align: center; 
 }
@@ -52,24 +52,14 @@ figcaption {
     text-align: center;
 }
 
-/*@media only screen and (max-width: 700px){
-    .photo {
-    border-style: solid;
-    float: left;
-    margin: 30px;
-    padding: 0 6px;
-    text-align: center;
-    width: 50%;
+@media only screen and (max-width: 700px){
+    figure {
+    width: 45%;
     }
 }
 
 @media only screen and (max-width: 500px){
-    .photo {
-    border-style: solid;
-    float: left;
-    margin: 30px;
-    padding: 0 6px;
-    text-align: center;
+    figure {
     width: 100%;
     }
-} */
+}
