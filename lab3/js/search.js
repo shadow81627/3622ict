@@ -2,6 +2,10 @@
 var figures = document.getElementsByTagName("figure");
 //gets the first figure
 var figcaption = figures[0].innerHTML;
+//get thumbnail location
+var thumbs = document.getElementById("thumbnails");
+//gets the original thumb nail content
+var originalThumb = thumbs.innerHTML;
 //gets the search button
 document.getElementById("search-btn").onclick = displayThumb;
 //gets the login button
@@ -14,12 +18,16 @@ document.getElementById("login-btn").onclick = loginAlert;
  * If the number is a floating point number then it will be rounded down.
  */
 function displayThumb() {
-    var num = document.getElementById("searchField").value;
-    var htmlStr = "";
+    //get seachFeild text
+    var num = document.getElementById("searchField").value.trim();
+    //get error html location
     var error = document.getElementById("error"); 
-    if (isNaN(num)){
+
+    if (isNaN(num) || num.length < 1){
         error.innerHTML = 'Please enter a number';
+        thumbs.innerHTML = originalThumb;
     }else {
+        var htmlStr = "";
         error.innerHTML = ' ';
         num = Math.floor(num);
         for (var i = 0; i < num; i++){
@@ -29,7 +37,6 @@ function displayThumb() {
             htmlStr += '<figure>' + figcaption + '</figure>';
             }
         }
-        var thumbs = document.getElementById("thumbnails");
         thumbs.innerHTML = htmlStr;
     }
 }
