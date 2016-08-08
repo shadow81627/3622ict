@@ -8,9 +8,10 @@
     <title>Photo Album</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
     <!-- Style sheet for the index page -->
-    <link href="style/index.css" type="text/css" rel="stylesheet">
+    <link href="style/index.css" type="text/css" rel="stylesheet"> 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,44 +21,68 @@
     <![endif]-->
   </head>
   <body>
-    <div id="header">
-        My Photo Album
-        <div id="login">
-            <button>Login</button>
-        </div>
-    </div>
-        <div id="content">
-            <div id="search">
-                <form action="">
-                  <input type="text" name="search" placeholder="Type your query here">
-                  <input type="submit" value="Search">
-                </form> 
+    <header>
+        <span id="heading">My Photo Album</span>
+        <span id="login">
+            <button class="btn btn-default">Login</button>
+        </span>
+    </header>
+        <div class="container">
+            <div class="row">
+                <div  id="search">
+                    <form class="form-inline" method="get" action="">
+                      <input type="text" class="form-control" name="search" placeholder="Type your query here">
+                      <input type="submit" class="btn btn-default" value="Search">
+                    </form> 
+                </div>
             </div>
-            <figure>
-                <a href="photos/DSC01049.JPG"><img src="photos/DSC01049.JPG" alt="City View"/><a/>
-                <figcaption>City View</figcaption>
-            </figure>
-            <figure>
-                <a href="photos/DSC01066.JPG"><img src="photos/DSC01066.JPG" alt="Ferris Wheel"/></a>
-                <figcaption>Ferris Wheel</figcaption>
-            </figure>
-            <figure>
-                <a href="photos/DSC02511.jpg"><img src="photos/DSC02511.jpg" alt="A building in the forbidden city"/></a>
-                <figcaption>A Building in the forbidden city with extra long text</figcaption>
-            </figure>
-            <figure>
-                <a href="photos/DSC03810.jpg"><img src="photos/DSC03810.jpg" alt="City from Mt Gravett look out"/></a>
-                <figcaption>City from Mt Gravett look out</figcaption>
-            </figure>
-            <figure>
-                <a href="photos/DSC05750.jpg"><img src="photos/DSC05750.jpg" alt="Sun rise"/></a>
-                <figcaption>Sun rise</figcaption>
-            </figure>
+            <div class="row center-block">
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12 center-block"> -->
+                    <figure>
+                        <a href="photos/DSC01049.JPG">
+                            <img class="" src="photos/DSC01049.JPG" alt="City View" height="200" width="200">
+                        </a>
+                        <figcaption>City View</figcaption>
+                    </figure>
+                <!-- </div> -->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <figure>
+                        <a href="photos/DSC01066.JPG">
+                            <img src="photos/DSC01066.JPG" alt="Ferris Wheel" height="200" width="200">
+                        </a>
+                        <figcaption>Ferris Wheel</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <figure>
+                        <a href="photos/DSC02511.jpg">
+                            <img src="photos/DSC02511.jpg" alt="A building in the forbidden city" height="200" width="200">
+                        </a>
+                        <figcaption>A Building in the forbidden city with extra long text</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <figure>
+                        <a href="photos/DSC03810.jpg">
+                            <img src="photos/DSC03810.jpg" alt="City from Mt Gravett look out" height="200" width="200">
+                        </a>
+                        <figcaption>City from Mt Gravett look out</figcaption>
+                    </figure>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <figure>
+                        <a href="photos/DSC05750.jpg">
+                            <img src="photos/DSC05750.jpg" alt="Sun rise" height="200" width="200">
+                        </a>
+                        <figcaption>Sun rise</figcaption>
+                    </figure>
+                </div>
+            </div>
         </div>
-    <div id="footer">By Damien Robinson</div>
+    <footer>By Damien Robinson</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
