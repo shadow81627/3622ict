@@ -1,0 +1,55 @@
+#content {
+    width: 99%;
+    margin: auto;
+}
+
+#heading {
+  color: white;  
+  font-size: 1.5em;
+}
+
+#login {
+    float: right;
+}
+
+#search {
+      float: right;
+      display: inline-block;
+      background: purple;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    padding: 1%;
+    width: 100%;
+}
+
+figure {
+    float: left;
+    font-size: 12px;
+    border: 1px solid black;
+    padding: 20px; 
+    margin: 5px;
+    text-align: center;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 700px){
+
+}
+
+@media only screen and (max-width: 500px){
+
+}
