@@ -11,12 +11,17 @@ console.log(figcaption);
 function displayThumb() {
     var num = document.getElementById("searchField").value;
     var htmlStr = "";
-    for (var i = 0; i < num; i++){
-        if (i % 2 === 0){
-             htmlStr += '<figure style="background: black;">' + figcaption + '</figure>';
-        }else {
-        htmlStr += '<figure>' + figcaption + '</figure>';
+    if (!isNaN(num)){
+        for (var i = 0; i < num; i++){
+            if (i % 2 === 0){
+                 htmlStr += '<figure style="background: black;">' + figcaption + '</figure>';
+            }else {
+            htmlStr += '<figure>' + figcaption + '</figure>';
+            }
         }
+    }else {
+       var error = document.getElementById("error"); 
+       error.innerHTML = 'Please enter a number'
     }
     var thumbs = document.getElementById("thumbnails");
     thumbs.innerHTML = htmlStr;
