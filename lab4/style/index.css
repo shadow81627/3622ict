@@ -10,6 +10,7 @@
 
 #login-btn {
     float: right;
+    margin: auto;
 }
 
 #search {
@@ -30,7 +31,7 @@ footer {
 header {
     background-color: black;
     text-align: center;
-    padding: 1%;
+    padding: 2em;
     width: 100%;
 }
 
