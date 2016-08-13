@@ -8,6 +8,9 @@ $(function() {
         {url: "photos/DSC05750.jpg", description: "Sun rise"}
     ];
     
+    /**
+     * Creates a list of tags from the discription of photos
+     */
     var tags = function(){
         var array1 = [];
         for(var i = 0; i < photoData.length; i++){
@@ -18,34 +21,29 @@ $(function() {
         $.each(array1, function(i, el){
             if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
         });
-        //return uniqueTags;
-        console.log(uniqueTags);
-    }
-
-    tags(); 
+        return uniqueTags;
+    };
     
+    var availableTags = tags();
+
     $("#search").submit(function(event){
         event.preventDefault();
         search();
     });
     
-   /* $( "#searchField" ).autocomplete({
-      source: function( request, response ) {
-              var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-              response( $.grep( tags, function( item ){
-                  return matcher.test( item );
-              }) );
-          }
-    });*/
+    $( "#searchField" ).autocomplete({
+      source: availableTags
+    });
     
     $("#login-btn").click(function(){
         loginAlert();
     });
     
     /**
-     * Reads the input of the search field and displays any photos which have a 
-     * description like the input. If the search query is not valid then an error is
-     * displayed.
+     * Reads the given input of a searchFeild if the input is in a photo 
+     * description then that photo will be set to display. This method is not 
+     * case sensitive. If the given input is null or whitespace then all photos 
+     * will be displayed.
      */
     function search() {
         var query = $("#searchField").val().toLowerCase().trim();
@@ -71,12 +69,12 @@ $(function() {
     }
     
     /**
-     * 
+     * Displays a given set of photos.
      */
     function displayThumb(result) {
         var htmlStr = "";
         for (var i = 0; i < result.length; i++){
-             htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>'
+             htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
         }
         $("#thumbnails").html(htmlStr);
     }
