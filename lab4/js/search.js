@@ -25,6 +25,8 @@ $(function() {
     };
     
     var availableTags = tags();
+    
+    console.log(availableTags);
 
     $("#search").submit(function(event){
         event.preventDefault();
