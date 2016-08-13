@@ -1,3 +1,11 @@
+//photo data
+var photoData = [
+    {url: "photos/DSC01049.JPG", description:"City View"},
+    {url: "photos/DSC01066.JPG", description:"Ferris Wheel"},
+    {url: "photos/DSC02511.jpg", description:"A Building in the forbidden city with extra long text"},
+    {url: "photos/DSC03810.jpg", description:"City from Mt Gravett look out"},
+    {url: "photos/DSC05750.jpg", description:"Sun rise"}
+];
 //gets all the figures
 var figures = document.getElementsByTagName("figure");
 //gets the first figure
@@ -7,38 +15,52 @@ var thumbs = document.getElementById("thumbnails");
 //gets the original thumb nail content
 var originalThumb = thumbs.innerHTML;
 //gets the search button
-document.getElementById("search-btn").onclick = displayThumb;
+document.getElementById("search-btn").onclick = search;
 //gets the login button
 document.getElementById("login-btn").onclick = loginAlert;
 
 /**
- * Read the searchFeild input, then displays the thumbnail a number of times 
- * entered into the searchField. Changes the background of 
- * every second thumbnail to be black. Checks to make sure input is a number.
- * If the number is a floating point number then it will be rounded down.
+ * Reads the input of the search field and displays any photos which have a 
+ * description like the input. If the search query is not valid then an error is
+ * displayed.
  */
-function displayThumb() {
+function search() {
     //get seachFeild text
-    var num = document.getElementById("searchField").value.trim();
+    var query = document.getElementById("searchField").value.trim();
     //get error html location
     var error = document.getElementById("error"); 
+    //results array
+    var results = [];
 
-    if (isNaN(num) || num.length < 1){
-        error.innerHTML = 'Please enter a number';
-        thumbs.innerHTML = originalThumb;
-    }else {
-        var htmlStr = "";
-        error.innerHTML = ' ';
-        num = Math.floor(num);
-        for (var i = 0; i < num; i++){
-            if (i % 2 === 0){
-                 htmlStr += '<figure>' + figcaption + '</figure>';
+    //if the query is not empty
+    if (query.length > 0){
+        //set the error to be empty
+        error.innerHTML = "";
+        //iterate through the photoData
+        for (var i = 0; i < photoData.length; i++){
+            //compare photo description with query, if it matches then add photo to results
+            if (photoData[i].description.indexOf(query) != -1) {
+                 result.push(photoData[i]);
             }else {
-            htmlStr += '<figure class="evenclass">' + figcaption + '</figure>';
+                //dont do anything
             }
         }
-        thumbs.innerHTML = htmlStr;
+        displayThumb(result);
+    }else {
+        error.innerHTML = 'Please enter a valid query';
+        thumbs.innerHTML = originalThumb;
     }
+}
+
+/**
+ * 
+ */
+function displayThumb(result) {
+    var htmlStr = "";
+    for (var i = 0; i < result.length; i++){
+         htmlStr += '<figure>' + figcaption + '</figure>';
+    }
+    thumbs.innerHTML = htmlStr;
 }
 
 /**
