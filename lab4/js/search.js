@@ -1,77 +1,95 @@
-//photo data
-var photoData = [
-    {url: "photos/DSC01049.JPG", description: "City View"},
-    {url: "photos/DSC01066.JPG", description: "Ferris Wheel"},
-    {url: "photos/DSC02511.jpg", description: "A Building in the forbidden city with extra long text"},
-    {url: "photos/DSC03810.jpg", description: "City from Mt Gravett look out"},
-    {url: "photos/DSC05750.jpg", description: "Sun rise"}
-];
-//gets all the figures
-var figures = document.getElementsByTagName("figure");
-//gets the first figure
-var figcaption = figures[0].innerHTML;
-//get thumbnail location
-var thumbs = document.getElementById("thumbnails");
-//gets the original thumb nail content
-var originalThumb = thumbs.innerHTML;
-//gets the search button
-document.getElementById("search").addEventListener("submit", function(event){
-    event.preventDefault();
-});
-document.getElementById("search").addEventListener("submit", search);
-//gets the login button
-document.getElementById("login-btn").onclick = loginAlert;
+$(function() {
+    //photo data
+    var photoData = [
+        {url: "photos/DSC01049.JPG", description: "City View"},
+        {url: "photos/DSC01066.JPG", description: "Ferris Wheel"},
+        {url: "photos/DSC02511.jpg", description: "A Building in the forbidden city with extra long text"},
+        {url: "photos/DSC03810.jpg", description: "City from Mt Gravett look out"},
+        {url: "photos/DSC05750.jpg", description: "Sun rise"}
+    ];
+    
+    var tags = function(){
+        var array1 = [];
+        for(var i = 0; i < photoData.length; i++){
+           var array2 = photoData[i].description.toLowerCase().split(" ");
+           $.merge(array1, array2);
+        }
+        var uniqueTags = [];
+        $.each(array1, function(i, el){
+            if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
+        });
+        //return uniqueTags;
+        console.log(uniqueTags);
+    }
 
-/**
- * Reads the input of the search field and displays any photos which have a 
- * description like the input. If the search query is not valid then an error is
- * displayed.
- */
-function search() {
-    //get seachFeild text
-    var query = document.getElementById("searchField").value.toLowerCase().trim();
-    //get error html location
-    var error = document.getElementById("error"); 
-    error.innerHTML = "";
-    //results array
-    var result = [];
+    tags(); 
+    
+    $("#search").submit(function(event){
+        event.preventDefault();
+        search();
+    });
+    
+   /* $( "#searchField" ).autocomplete({
+      source: function( request, response ) {
+              var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+              response( $.grep( tags, function( item ){
+                  return matcher.test( item );
+              }) );
+          }
+    });*/
+    
+    $("#login-btn").click(function(){
+        loginAlert();
+    });
+    
+    /**
+     * Reads the input of the search field and displays any photos which have a 
+     * description like the input. If the search query is not valid then an error is
+     * displayed.
+     */
+    function search() {
+        var query = $("#searchField").val().toLowerCase().trim();
+        var error = $("#error").html(""); 
+        var result = [];
 
-    //if the query is not empty
-    if (query.length > 0){
-        //iterate through the photoData
-        for (var i = 0; i < photoData.length; i++){
-            //compare photo description with query, if it matches then add photo to results
-            if (photoData[i].description.toLowerCase().indexOf(query) != -1) {
-                 result.push(photoData[i]);
-            }else {
-                //dont do anything
+        if (query.length > 0){
+            for (var i = 0; i < photoData.length; i++){
+                if (photoData[i].description.toLowerCase().indexOf(query) != -1) {
+                     result.push(photoData[i]);
+                }else {
+                }
             }
-        }
-        if (result.length > 0) {
-            displayThumb(result);
+            if (result.length > 0) {
+                displayThumb(result);
+            }else {
+                error.html("No matching photo found");
+            }
+            
         }else {
-            error.innerHTML = "No matching photo found";
+            displayThumb(photoData);
         }
-        
-    }else {
-        thumbs.innerHTML = originalThumb;
     }
-}
-
-/**
- * 
- */
-function displayThumb(result) {
-    var htmlStr = "";
-    for (var i = 0; i < result.length; i++){
-         htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>'
+    
+    /**
+     * 
+     */
+    function displayThumb(result) {
+        var htmlStr = "";
+        for (var i = 0; i < result.length; i++){
+             htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>'
+        }
+        $("#thumbnails").html(htmlStr);
     }
-    thumbs.innerHTML = htmlStr;
-}
+    
+    /**
+     * Displays a popup box saying this button doesnt work yet.
+     */
+    function loginAlert() {
+        alert(" this feature is not available yet");
+    } 
 
-/**
- * Displays a popup box saying this button doesnt work yet.
- */
-function loginAlert() {
-    alert(" this feature is not available yet");
-}
+
+});
+
+
+

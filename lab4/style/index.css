@@ -2,6 +2,9 @@
     width: 99%;
     margin: auto;
 }
+#error {
+    color: red;
+}
 
 #heading {
   color: white;  
