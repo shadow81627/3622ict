@@ -34,6 +34,16 @@ $(function() {
     });
     
     $( "#searchField" ).autocomplete({
+      _renderMenu: function( ul, items ) {
+          var that = this;
+          $.each( items, function( index, item ) {
+            that._renderItemData( ul, item );
+          });
+          $( ul ).find( "li:odd" ).addClass( "odd" );
+        }
+    });
+    
+    $( "#searchField" ).autocomplete({
       source: availableTags
     });
     
