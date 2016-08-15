@@ -21,8 +21,9 @@
   </head>
   <body>
     <header>
+        <button class="btn btn-default" id="back-btn">Back</button>
         <span id="heading">My Photo Album</span>
-            <button class="btn btn-default" id="login-btn">Login</button>
+        <button class="btn btn-default" id="login-btn">Login</button>
     </header>
         <div class="container">
             <div class="row">
@@ -34,6 +35,10 @@
                       <input type="button" id="search-btn" class="btn btn-default" value="Search">
                     </form> 
                 </div>
+            </div>
+            <div id="splash" class ="row">
+                Splash screen
+                <button id="splash-btn" class="btn btn-default">Go</button>
             </div>
             <div id="thumbnails" class="row center-block">
                 <figure>
@@ -71,7 +76,7 @@
     <footer>By Damien Robinson</footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/search.js"></script>

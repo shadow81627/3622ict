@@ -16,10 +16,20 @@
     margin: auto;
 }
 
+#back-btn {
+    float: left;
+    margin: auto;
+    display: none;
+}
+
 #searchBox {
       float: right;
       display: inline-block; 
       padding: 0.5em;
+}
+
+#thumbnails {
+    display: none;
 }
 
 footer {

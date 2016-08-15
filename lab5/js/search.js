@@ -9,6 +9,16 @@ $(function() {
     ];
     
     /**
+     * When the splash button is clicked the thumbnails will be displayed and 
+     * the splash screen button will be hidden.
+     *
+     */
+    $("#splash-btn").click(function(){
+        $("#splash").hide();
+        $("#thumbnails").show();
+    });
+    
+    /**
      * Creates a list of tags from the discription of photos
      */
     var tags = function(){
@@ -26,7 +36,7 @@ $(function() {
     
     var availableTags = tags();
     
-    console.log(availableTags);
+    //console.log(availableTags);
 
     $("#search").submit(function(event){
         event.preventDefault();
