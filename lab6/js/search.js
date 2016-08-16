@@ -107,7 +107,7 @@ $(function() {
     function displayThumb(result) {
         var htmlStr = "";
         for (var i = 0; i < result.length; i++){
-             htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" data-lightbox="' + result[i].description + '" data-title="' + result[i].description + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
+             htmlStr +=  '<figure><a href="' + result[i].url + '" data-lightbox="' + result[i].description + '" data-title="' + result[i].description + '"><img src="' + result[i].url +  '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
         }
         $("#thumbnails").html(htmlStr);
         $( "figure" ).draggable();
