@@ -1,0 +1,74 @@
+#content {
+    width: 99%;
+    margin: auto;
+}
+#error {
+    color: red;
+}
+
+#heading {
+  color: white;  
+  font-size: 1.5em;
+}
+
+#login-btn {
+    float: right;
+    margin: auto;
+}
+
+#back-btn {
+    float: left;
+    margin: auto;
+    display: none;
+}
+
+#searchBox {
+      float: right;
+      display: inline-block; 
+      padding: 0.5em;
+}
+
+#thumbnails {
+    display: none;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    padding: 2em;
+    width: 100%;
+}
+
+.odd {
+    background-color: white;
+}
+
+figure {
+    float: left;
+    font-size: 12px;
+    border: 1px solid black;
+    padding: 20px; 
+    margin: 5px;
+    text-align: center;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 700px){
+
+}
+
+@media only screen and (max-width: 500px){
+
+}
+
