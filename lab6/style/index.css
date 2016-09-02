@@ -76,7 +76,7 @@ header {
 .sideItem {
     width: 200px;
     margin-bottom: 5px;
-    background-color: #A31218;
+    background-color: black;
     padding: 5px;
     color: white;
     transition: transform 2s;
