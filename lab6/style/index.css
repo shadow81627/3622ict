@@ -22,10 +22,24 @@
     display: none;
 }
 
+#sideMenu {
+    position: fixed;
+    top: 100px;
+    right: -155px;
+    font-size: 50px;
+}
+
 #searchBox {
-      float: right;
-      display: inline-block; 
-      padding: 0.5em;
+  float: right;
+  display: inline-block; 
+  padding: 0.5em;
+}
+
+#splash-btn {
+    animation-name: splash-btn;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    position: relative;
 }
 
 #thumbnails {
@@ -52,6 +66,20 @@ header {
     background-color: white;
 }
 
+.sideItem {
+    width: 200px;
+    margin-bottom: 5px;
+    background-color: #A31218;
+    padding: 5px;
+    color: white;
+    transition: transform 2s;
+}
+
+.sideItem:hover {
+    -webkit-transform: translateX(-130px);
+    transform: translateX(-130px);
+}
+
 figure {
     float: left;
     font-size: 12px;
@@ -64,6 +92,18 @@ figure {
     overflow: hidden;
 }
 
+@-webkit-keyframes splashbtn {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color: orange; left: 100px; top:0px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+@keyframes splash-btn {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color: orange; left: 100px; top:0px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
 @media only screen and (max-width: 700px){
 
 }
@@ -71,4 +111,5 @@ figure {
 @media only screen and (max-width: 500px){
 
 }
+
 

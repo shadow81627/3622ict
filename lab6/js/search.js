@@ -7,7 +7,7 @@ $(function() {
      */
     $("#splash-btn").click(function(){
         $("#splash").hide();
-        $("#thumbnails").show();
+        $("#thumbnails").show(2000);
         $("#back-btn").show();
     });
     
@@ -18,7 +18,7 @@ $(function() {
      */
      $("#back-btn").click(function() {
          $("#splash").show();
-         $("#thumbnails").hide();
+         $("#thumbnails").hide(2000);
          $("#back-btn").hide();
      });
     
@@ -52,20 +52,7 @@ $(function() {
             search(data.data);
         });
     });
-    
 
-   /* $( "#searchField" ).autocomplete({
-      _renderMenu: function( ul, items ) {
-          var that = this;
-          $.each( items, function( index, item ) {
-            that._renderItemData( ul, item );
-          });
-          $( ul ).find( "li:odd" ).addClass( "odd" );
-        }
-    }); */
-    
-    
-    
     $("#login-btn").click(function(){
         loginAlert();
     });
