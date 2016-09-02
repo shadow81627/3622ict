@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet"> 
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
     <!-- Style sheet for the index page -->
     <link href="style/index.css" type="text/css" rel="stylesheet"> 
 
@@ -23,20 +23,19 @@
   <body>
     <header>
         <span id="heading">My Photo Album</span>
-        <span id="login">
-            <button class="btn btn-default">Login</button>
-        </span>
+            <button class="btn btn-default" id="login-btn">Login</button>
     </header>
         <div class="container">
             <div class="row">
                 <div  id="search">
-                    <form class="form-inline" method="get">
-                      <input type="text" class="form-control" name="search" placeholder="Type your query here">
-                      <input type="submit" class="btn btn-default" value="Search">
+                    <form class="form-inline" method="get" action="">
+                      <span id="error" style="color: red;"></span>
+                      <input type="text" id="searchField" class="form-control" name="search" placeholder="Type your query here">
+                      <input type="button" id="search-btn" class="btn btn-default" value="Search">
                     </form> 
                 </div>
             </div>
-            <div class="row center-block">
+            <div id="thumbnails" class="row center-block">
                 <figure>
                     <a href="photos/DSC01049.JPG">
                         <img class="" src="photos/DSC01049.JPG" alt="City View" height="200" width="200">
@@ -74,5 +73,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>

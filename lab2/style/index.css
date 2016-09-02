@@ -8,14 +8,13 @@
   font-size: 1.5em;
 }
 
-#login {
+#login-btn {
     float: right;
 }
 
 #search {
       float: right;
       display: inline-block;
-      background: purple;
 }
 
 footer {
@@ -32,6 +31,10 @@ header {
     text-align: center;
     padding: 1%;
     width: 100%;
+}
+
+.evenclass {
+    background-color: black;
 }
 
 figure {

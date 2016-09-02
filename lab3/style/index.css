@@ -2,6 +2,9 @@
     width: 99%;
     margin: auto;
 }
+#error {
+    color: red;
+}
 
 #heading {
   color: white;  
@@ -10,11 +13,13 @@
 
 #login-btn {
     float: right;
+    margin: auto;
 }
 
-#search {
+#searchBox {
       float: right;
-      display: inline-block;
+      display: inline-block; 
+      padding: 0.5em;
 }
 
 footer {
@@ -29,12 +34,12 @@ footer {
 header {
     background-color: black;
     text-align: center;
-    padding: 1%;
+    padding: 2em;
     width: 100%;
 }
 
-.evenclass {
-    background-color: black;
+.odd {
+    background-color: white;
 }
 
 figure {
@@ -56,3 +61,4 @@ figure {
 @media only screen and (max-width: 500px){
 
 }
+

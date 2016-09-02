@@ -1,39 +1,60 @@
 $(function() {
-    //photo data
-    var photoData = [
-        {url: "photos/DSC01049.JPG", description: "City View"},
-        {url: "photos/DSC01066.JPG", description: "Ferris Wheel"},
-        {url: "photos/DSC02511.jpg", description: "A Building in the forbidden city with extra long text"},
-        {url: "photos/DSC03810.jpg", description: "City from Mt Gravett look out"},
-        {url: "photos/DSC05750.jpg", description: "Sun rise"}
-    ];
+
+    /**
+     * When the splash button is clicked the thumbnails will be displayed and 
+     * the splash screen button will be hidden.
+     *
+     */
+    $("#splash-btn").click(function(){
+        $("#splash").hide();
+        $("#thumbnails").show();
+        $("#back-btn").show();
+    });
     
     /**
-     * Creates a list of tags from the discription of photos
+     * When the back button is pressed the splash screen is displayed and the 
+     * thumbnails are hidden.
+     *
      */
-    var tags = function(){
-        var array1 = [];
-        for(var i = 0; i < photoData.length; i++){
-           var array2 = photoData[i].description.toLowerCase().split(" ");
-           $.merge(array1, array2);
-        }
-        var uniqueTags = [];
-        $.each(array1, function(i, el){
-            if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
+     $("#back-btn").click(function() {
+         $("#splash").show();
+         $("#thumbnails").hide();
+         $("#back-btn").hide();
+     });
+    
+    /**
+     * Creates a list of tags from the discription of photos. Sets the 
+     * autocomplete for the search field using the tags.
+     */
+        $.getJSON("data/photoData.json", function(data){
+            var photoData = data.data;
+            var array1 = [];
+            for(var i = 0; i < photoData.length; i++){
+               var array2 = photoData[i].description.toLowerCase().split(" ");
+               $.merge(array1, array2);
+            }
+            
+            var uniqueTags = [];
+            $.each(array1, function(i, el){
+                if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
+            });
+            
+            console.log(uniqueTags);
+
+            $( "#searchField" ).autocomplete({
+              source: uniqueTags
+            });
         });
-        return uniqueTags;
-    };
-    
-    var availableTags = tags();
-    
-    console.log(availableTags);
 
     $("#search").submit(function(event){
         event.preventDefault();
-        search();
+        $.getJSON("data/photoData.json", function(data) {
+            search(data.data);
+        });
     });
     
-    $( "#searchField" ).autocomplete({
+
+   /* $( "#searchField" ).autocomplete({
       _renderMenu: function( ul, items ) {
           var that = this;
           $.each( items, function( index, item ) {
@@ -41,11 +62,9 @@ $(function() {
           });
           $( ul ).find( "li:odd" ).addClass( "odd" );
         }
-    });
+    }); */
     
-    $( "#searchField" ).autocomplete({
-      source: availableTags
-    });
+    
     
     $("#login-btn").click(function(){
         loginAlert();
@@ -57,7 +76,7 @@ $(function() {
      * case sensitive. If the given input is null or whitespace then all photos 
      * will be displayed.
      */
-    function search() {
+    function search(photoData) {
         var query = $("#searchField").val().toLowerCase().trim();
         var error = $("#error").html(""); 
         var result = [];
@@ -80,6 +99,8 @@ $(function() {
         }
     }
     
+    $( "figure" ).draggable();
+    
     /**
      * Displays a given set of photos.
      */
@@ -89,6 +110,7 @@ $(function() {
              htmlStr +=  '<figure><a href="' + result[i].url + '"><img src="' + result[i].url + '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
         }
         $("#thumbnails").html(htmlStr);
+        $( "figure" ).draggable();
     }
     
     /**

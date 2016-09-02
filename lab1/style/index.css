@@ -2,34 +2,20 @@
     width: 99%;
     margin: auto;
 }
-#error {
-    color: red;
-}
 
 #heading {
   color: white;  
   font-size: 1.5em;
 }
 
-#login-btn {
+#login {
     float: right;
-    margin: auto;
 }
 
-#back-btn {
-    float: left;
-    margin: auto;
-    display: none;
-}
-
-#searchBox {
+#search {
       float: right;
-      display: inline-block; 
-      padding: 0.5em;
-}
-
-#thumbnails {
-    display: none;
+      display: inline-block;
+      background: purple;
 }
 
 footer {
@@ -44,12 +30,8 @@ footer {
 header {
     background-color: black;
     text-align: center;
-    padding: 2em;
+    padding: 1%;
     width: 100%;
-}
-
-.odd {
-    background-color: white;
 }
 
 figure {
@@ -71,4 +53,3 @@ figure {
 @media only screen and (max-width: 500px){
 
 }
-
