@@ -8,8 +8,26 @@
 }
 
 #login-btn {
-    float: right;
-    margin: auto;
+    position: absolute;
+    right: 8em;
+    top: 3em;
+}
+
+#logo {
+    margin: none;
+    padding: none;
+    height: 5em;
+    width: 5em;
+    
+    float: left;
+    font-size: 12px;
+    border: 1px solid black;
+    padding: 20px; 
+    margin: 5px;
+    text-align: center;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
 }
 
 #sideMenu {
