@@ -24,9 +24,22 @@
   <body>
     <div id="content" class="container">
       <div id="header" class="runner">
-        <img id="logo" src="images/Tourism_Australia_2012.png" height="200" width="200" />
-        <span id="heading">Welcome to Australia</span>
+        <img id="logo" src="images/Tourism_Australia_2012.png" height="100" width="100" />
+        <span id="heading">Welcome to 'MURICA</span>
         <button class="btn btn-default" id="login-btn">Login</button>
+      </div>
+      <div>
+        <div  id="searchBox">
+            <form id="search" class="form-inline" >
+              <div class="form-group has-feedback">
+                <label id="error" for="searchField"></label>
+                <label class="sr-only" for="searchField">Search</label>
+                <input type="search" id="searchField" class="form-control" name="search">
+                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+              </div>
+              <input type="button" id="search-btn" class="btn btn-default" value="Search">
+            </form> 
+        </div>
       </div>
       <div id="sideMenu" class="row">
         <div class="row sideItem"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><span class="menu-text"> Home</span></div>

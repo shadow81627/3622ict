@@ -8,25 +8,15 @@
 }
 
 #login-btn {
-    position: absolute;
-    right: 8em;
-    top: 3em;
+    position: relative;
+    left: 20em;
+    bottom: 1.5em;
 }
 
 #logo {
-    margin: none;
-    padding: none;
-    height: 5em;
-    width: 5em;
-    
     float: left;
-    font-size: 12px;
-    border: 1px solid black;
-    padding: 20px; 
-    margin: 5px;
-    text-align: center;
-    width: 270px;
-    height: 270px;
+    width: 100px;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -56,4 +46,25 @@ body {
     background-color: #002B7F;
     color: white;
     padding: 0.25em;
+    width:100%;
 }
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
