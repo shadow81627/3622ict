@@ -6,27 +6,18 @@
     font-size: 80px;
 }
 
-#login-box {
-    float: right;
-}
-
 #login-btn {
 }
 
 #logo {
-    margin: auto;
+    margin: 0px;
+    padding: 0px;
 }
 
 #sideMenu {
     padding: 1em;
     float: left;
     margin: 5px;
-}
-
-#searchBox {
-  float: right;
-  display: inline-block; 
-  padding: 0.5em;
 }
 
 /**
@@ -36,6 +27,13 @@ body {
     /*background-color: SandyBrown; */
     background-image: url("../images/beach_sand_by_sharandra-d6wf18w.png");
 }
+
+.inline-box {
+    float: right;
+    display: inline-block; 
+    padding: 0.5em;
+}
+
 .sideItem {
     width: 200px;
     margin-bottom: 5px;
