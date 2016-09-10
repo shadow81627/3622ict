@@ -3,21 +3,18 @@
     padding: 0px;
 }
 #heading {
-    font-size: 5em;
-    margin-left: 0.25em;
+    font-size: 80px;
+}
+
+#login-box {
+    float: right;
 }
 
 #login-btn {
-    position: relative;
-    left: 20em;
-    bottom: 1.5em;
 }
 
 #logo {
-    float: left;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
+    margin: auto;
 }
 
 #sideMenu {
