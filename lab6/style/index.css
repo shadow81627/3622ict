@@ -3,7 +3,7 @@
     padding: 0px;
 }
 #heading {
-    font-size: 80px;
+    font-size: 82px;
 }
 
 #login-btn {
@@ -36,7 +36,7 @@ body {
 
 .sideItem {
     width: 200px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     background-color: #E8112D;
     padding: 0.25em;
     color: white;
