@@ -36,7 +36,7 @@
  * The background uses repeated beach sand textures
  */
 body {
-    background-color: SandyBrown;
+    /*background-color: SandyBrown; */
     background-image: url("../images/beach_sand_by_sharandra-d6wf18w.png");
 }
 .sideItem {
