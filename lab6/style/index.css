@@ -13,11 +13,14 @@
     margin: 0px;
     padding: 0px;
 }
+#searchicon {
+    background-color: lightblue
+}
 
 #sideMenu {
     padding: 1em;
     float: left;
-    margin: 5px;
+    margin: 0px;
 }
 
 /**
