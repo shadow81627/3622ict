@@ -9,11 +9,6 @@
 #login-btn {
 }
 
-#logo {
-    margin: 0px;
-    padding: 0px;
-}
-
 #search-box {
     height: 48px
 }
@@ -41,6 +36,11 @@ body {
     float: right;
     display: inline-block; 
     padding: 0.5em;
+}
+
+.logo {
+    margin: 0px;
+    padding: 0px;
 }
 
 .sideItem {
