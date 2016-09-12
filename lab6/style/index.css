@@ -32,6 +32,10 @@ body {
     background-image: url("../images/beach_sand_by_sharandra-d6wf18w.png");
 }
 
+figcaption {
+    font-weight: bold;
+}
+
 .inline-box {
     float: right;
     display: inline-block; 
