@@ -13,14 +13,20 @@
     margin: 0px;
     padding: 0px;
 }
-#searchicon {
+
+#search-box {
+    height: 48px
+}
+
+#search-icon {
     background-color: lightblue
 }
 
 #sideMenu {
-    padding: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
     float: left;
-    margin: 0px;
+
 }
 
 /**
