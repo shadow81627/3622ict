@@ -62,26 +62,18 @@ figcaption {
     padding: 0.25em;
 }
 
-
-
-/* Footer left */
-
+/* footer */
 .footer-left{
 	width: 40%;
 }
-
-/* Footer Center */
 
 .footer-center{
 	width: 35%;
 }
 
-/* Footer Right */
-
 .footer-right{
 	width: 20%;
 }
-
 
 .footer-distributed{
 	font-size: 16px;
@@ -95,6 +87,8 @@ figcaption {
 	display: inline-block;
 	vertical-align: top;
 }
+
+/* navbar */
 
 @media (min-width: 768px) {
   .navbar-collapse {

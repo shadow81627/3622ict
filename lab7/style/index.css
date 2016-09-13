@@ -1,0 +1,122 @@
+#content {
+    width: 99%;
+    margin: auto;
+}
+#error {
+    color: red;
+}
+
+#heading {
+  color: white;  
+  font-size: 1.5em;
+}
+
+#login-btn {
+    float: right;
+    margin: auto;
+}
+
+#back-btn {
+    float: left;
+    margin: auto;
+    display: none;
+}
+
+#sideMenu {
+    position: fixed;
+    top: 25%;
+    right: -155px;
+    z-index: 1000;
+}
+
+#searchBox {
+  float: right;
+  display: inline-block; 
+  padding: 0.5em;
+}
+
+#splash-btn {
+    animation-name: splash-btn;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    position: relative;
+    -webkit-animation-name: splash-btn; 
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+#thumbnails {
+    display: none;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+}
+
+header {
+    background-color: black;
+    text-align: center;
+    padding: 2em;
+    width: 100%;
+}
+
+.odd {
+    background-color: white;
+}
+
+.menu-text {
+    padding: 20px;
+}
+
+.sideItem {
+    width: 200px;
+    margin-bottom: 5px;
+    background-color: black;
+    padding: 5px;
+    color: white;
+    transition: transform 2s;
+}
+
+.sideItem:hover {
+    -webkit-transform: translateX(-130px);
+    transform: translateX(-130px);
+}
+
+figure {
+    float: left;
+    font-size: 12px;
+    border: 1px solid black;
+    padding: 20px; 
+    margin: 5px;
+    text-align: center;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+}
+
+@-webkit-keyframes splashbtn {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color: orange; left: 100px; top:0px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+@keyframes splash-btn {
+    0%   {background-color:red; left:0px; top:0px;}
+    50%  {background-color: orange; left: 100px; top:0px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+@media only screen and (max-width: 700px){
+
+}
+
+@media only screen and (max-width: 500px){
+
+}
+
+
