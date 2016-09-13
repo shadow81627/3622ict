@@ -1,3 +1,5 @@
+var APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
+
 $(function() {
 
     /**
@@ -106,7 +108,10 @@ $(function() {
     function loginAlert() {
         alert(" this feature is not available yet");
     } 
-
+    
+    function getInteresting(){
+        
+    }
 
 });
 
