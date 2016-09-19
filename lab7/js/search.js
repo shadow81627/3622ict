@@ -1,5 +1,6 @@
 var APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
 
+APIkey = "api_key=dc140afe3fd3a251c2fdf9dcd835be5c"
 $(function() {
 
     getInteresting()
@@ -8,7 +9,7 @@ $(function() {
     
     function getInteresting(){
        var interestingStr = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1" + "&" + APIkey;
-       interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=b9d0c4415b87adff9c88587097315427&per_page=20&format=json&nojsoncallback=1';
+       //interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=b9d0c4415b87adff9c88587097315427&per_page=20&format=json&nojsoncallback=1';
        console.log(interestingStr);
        $.get(interestingStr, function(data){
             console.log(data);
@@ -20,6 +21,11 @@ $(function() {
     function fetchLink(data){
         for(var i = 0; data.photos.photo.length; i++){
             console.log(data.photos.photo[id].id)
+            var photoObj = data.photos.photo[i];
+            var getSizeStr = '';
+            $.get(getSizeStr, function(data){
+                console.log(data)
+            });
         }
     }
     
