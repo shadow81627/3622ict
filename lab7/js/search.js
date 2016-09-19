@@ -2,6 +2,27 @@ var APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
 
 $(function() {
 
+    getInteresting()
+    
+    console.log(APIkey)
+    
+    function getInteresting(){
+       var interestingStr = "https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1" + "&" + APIkey;
+       interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=b9d0c4415b87adff9c88587097315427&per_page=20&format=json&nojsoncallback=1';
+       console.log(interestingStr);
+       $.get(interestingStr, function(data){
+            console.log(data);
+            fetchLink()
+        });
+        
+    }
+    
+    function fetchLink(data){
+        for(var i = 0; data.photos.photo.length; i++){
+            console.log(data.photos.photo[id].id)
+        }
+    }
+    
     /**
      * When the splash button is clicked the thumbnails will be displayed and 
      * the splash screen button will be hidden.
@@ -40,8 +61,6 @@ $(function() {
             $.each(array1, function(i, el){
                 if($.inArray(el, uniqueTags) === -1) uniqueTags.push(el);
             });
-            
-            console.log(uniqueTags);
 
             $( "#searchField" ).autocomplete({
               source: uniqueTags
