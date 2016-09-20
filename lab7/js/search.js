@@ -46,7 +46,8 @@ $(function() {
             for(var i = 0; i < data.sizes.size.length; i ++) {
                 if(data.sizes.size[i].label == "Small"){
                     photoObj.thumbnail = data.sizes.size[i].source;
-                }else if(data.sizes.size[i].label == "Large") {
+                }
+                if(data.sizes.size[i].label == "Large") {
                     photoObj.url = data.sizes.size[i].source;
                 }
             }
@@ -61,6 +62,14 @@ $(function() {
             if (sizesReturn == numPhotos){
                 displayThumb(photos);
             }
+        });
+    }
+    
+    function getSearch(){
+        var query = $("#searchField").val().toLowerCase().trim();
+        var searchStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&text=' + query + '&per_page=20&format=json&nojsoncallback=1' + '&' + APIkey;
+        $.get(searchStr, function(data){
+            fetchLink(data);
         });
     }
     
@@ -110,9 +119,10 @@ $(function() {
 
     $("#search").submit(function(event){
         event.preventDefault();
-        $.getJSON("data/photoData.json", function(data) {
+        getSearch();
+        /*$.getJSON("data/photoData.json", function(data) {
             search(data.data);
-        });
+        });*/
     });
 
     $("#login-btn").click(function(){
