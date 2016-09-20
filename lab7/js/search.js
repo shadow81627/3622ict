@@ -12,7 +12,6 @@ $(function() {
     function getInteresting(){
        var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + APIkey;
        $.get(interestingStr, function(data){
-            console.log(data);
             fetchLink(data);
         });
         
@@ -23,7 +22,7 @@ $(function() {
      * data: a JSON of photo data from flickr.
      */
     function fetchLink(data){
-        for(var i = 0; data.photos.photo.length; i++){
+        for(var i = 0; i < data.photos.photo.length; i++){
             var photoObj = {id: data.photos.photo[i].id, description: data.photos.photo[i].title}
             photos.push(photoObj);
             getImage(photoObj);
@@ -36,7 +35,8 @@ $(function() {
     function getImage(photoObj){
         var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + APIkey;
         $.get(getSizeStr, function(data){
-            console.log(data);
+            photoObj.url = data.sizes.size[4].source;
+            console.log(photoObj.url);
         });
     }
     
