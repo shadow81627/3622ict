@@ -30,7 +30,7 @@ $(function() {
         numPhotos = data.photos.photo.length;
         sizesReturn = 0;
         for(var i = 0; i < data.photos.photo.length; i++){
-            var photoObj = {id: data.photos.photo[i].id, description: data.photos.photo[i].title}
+            var photoObj = {id: data.photos.photo[i].id, description: data.photos.photo[i].title, thumbnail: '', url: ''}
             photos.push(photoObj);
             getImage(photoObj);
         }
@@ -42,8 +42,22 @@ $(function() {
     function getImage(photoObj){
         var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + APIkey;
         $.get(getSizeStr, function(data){
-            photoObj.url = data.sizes.size[4].source;
+            //Retrive different size image
+            for(var i = 0; i < data.sizes.size.length; i ++) {
+                if(data.sizes.size[i].label == "Small"){
+                    photoObj.thumbnail = data.sizes.size[i].source;
+                }else if(data.sizes.size[i].label == "Large") {
+                    photoObj.url = data.sizes.size[i].source;
+                }
+            }
+            if(photoObj.url == ''){
+                photoObj.url = data.sizes.size[data.sizes.size.length -1].source;
+            }
+            if(photoObj.thumbnail == ''){
+                photoObj.thumbnail = data.sizes.size[data.sizes.size.length -1].source;
+            }
             sizesReturn++;
+            //if we have itterated through all of the photos then display them
             if (sizesReturn == numPhotos){
                 displayThumb(photos);
             }
@@ -142,7 +156,7 @@ $(function() {
     function displayThumb(result) {
         var htmlStr = "";
         for (var i = 0; i < result.length; i++){
-             htmlStr +=  '<figure><a href="' + result[i].url + '" data-lightbox="image-1" data-title="' + result[i].description + '"><img src="' + result[i].url +  '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
+             htmlStr +=  '<figure><a href="' + result[i].url + '" data-lightbox="image-1" data-title="' + result[i].description + '"><img src="' + result[i].thumbnail +  '" alt="' + result[i].description + '" height="200" width="200"></a><figcaption>' + result[i].description + '</figcaption></figure>';
         }
         $("#thumbnails").html(htmlStr);
         $( "figure" ).draggable();
