@@ -1,27 +1,23 @@
 var APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
 
-//APIkey = "api_key=dc140afe3fd3a251c2fdf9dcd835be5c"
 $(function() {
 
-    memes();
+    getInteresting();
     
-    console.log(APIkey); 
-    
-    function memes(){
+    function getInteresting(){
        var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + APIkey;
-       console.log(interestingStr);
        $.get(interestingStr, function(data){
             console.log(data);
-            fetchLink();
+            fetchLink(data);
         });
         
     }
     
     function fetchLink(data){
         for(var i = 0; data.photos.photo.length; i++){
-            console.log(data.photos.photo[id].id)
+            var id = data.photos.photo[i].id
             var photoObj = data.photos.photo[i];
-            var getSizeStr = '';
+            var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + data.photos.photo[i].id + '&format=json&nojsoncallback=1' + '&' + APIkey;
             $.get(getSizeStr, function(data){
                 console.log(data);
             });
@@ -132,11 +128,6 @@ $(function() {
     function loginAlert() {
         alert(" this feature is not available yet");
     } 
-    
-    function getInteresting(){
-        
-    }
-
 });
 
 
