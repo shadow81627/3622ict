@@ -1,4 +1,6 @@
-/**
+$(function() {
+
+    /**
      * When the splash button is clicked the thumbnails will be displayed and 
      * the splash screen button will be hidden.
      *
@@ -40,3 +42,5 @@
     } 
     
     $( "figure" ).draggable();
+   
+});
