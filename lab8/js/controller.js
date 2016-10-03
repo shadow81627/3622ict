@@ -3,7 +3,7 @@ var model = {};
 var view = {};
 
 $(function() {
-    model.getInteresting();
+    model.getInteresting(view.displayThumb);
     $("#search").submit(function(event){
         event.preventDefault();
         model.getSearch();

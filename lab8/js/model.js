@@ -7,10 +7,13 @@ model.numPhotos = 0;
 //the number of photos found by get image
 model.sizesReturn = 0;
 
+model.displayCallback;
+
 /**
  * Get the interestingness photos from flickr.
  */
-model.getInteresting = function() {
+model.getInteresting = function(displayCallback) {
+    model.displayCallback = displayCallback;
    var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + model.APIkey;
    $.get(interestingStr, function(data){
         model.fetchLink(data);
@@ -57,7 +60,7 @@ model.fetchLink = function(data){
         model.sizesReturn++;
         //if we have itterated through all of the photos then display them
         if (model.sizesReturn == model.numPhotos){
-            view.displayThumb(model.photos);
+            model.displayCallback(model.photos);
         }
     });
 }
