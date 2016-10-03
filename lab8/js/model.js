@@ -7,6 +7,8 @@ var numPhotos = 0;
 //the number of photos found by get image
 var sizesReturn = 0;
 
+$(function() {
+
  getInteresting();
     /**
      * Get the interestingness photos from flickr.
@@ -70,3 +72,4 @@ var sizesReturn = 0;
             fetchLink(data);
         });
     }
+});

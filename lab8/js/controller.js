@@ -1,4 +1,5 @@
-$("#search").submit(function(event){
+$(function() {
+    $("#search").submit(function(event){
         event.preventDefault();
         getSearch();
         /*$.getJSON("data/photoData.json", function(data) {
@@ -9,3 +10,4 @@ $("#search").submit(function(event){
     $("#login-btn").click(function(){
         loginAlert();
     });
+});
