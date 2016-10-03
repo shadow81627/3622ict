@@ -1,3 +1,7 @@
+var controller = {};
+var model = {};
+var view = {};
+
 $(function() {
     $("#search").submit(function(event){
         event.preventDefault();
