@@ -1,22 +1,22 @@
 //my api key for flickr
-model.APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
+flickr.APIkey = "api_key=a1979ae64d705370ba668cfc361a554e";
 //the array of photos from flickr
-model.photos = [];
+flickr.photos = [];
 // number of photos
-model.numPhotos = 0;
+flickr.numPhotos = 0;
 //the number of photos found by get image
-model.sizesReturn = 0;
+flickr.sizesReturn = 0;
 
-model.displayCallback;
+flickr.displayCallback;
 
 /**
  * Get the interestingness photos from flickr.
  */
-model.getInteresting = function(displayCallback) {
-    model.displayCallback = displayCallback;
-   var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + model.APIkey;
+flickr.getInteresting = function(displayCallback) {
+    flickr.displayCallback = displayCallback;
+   var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
    $.get(interestingStr, function(data){
-        model.fetchLink(data);
+        flickr.fetchLink(data);
     });
     
 }
@@ -25,22 +25,22 @@ model.getInteresting = function(displayCallback) {
  * Creates an array of photos from
  * data: a JSON of photo data from flickr.
  */
-model.fetchLink = function(data){
-    model.photos = [];
-    model.numPhotos = data.photos.photo.length;
-    model.sizesReturn = 0;
+flickr.fetchLink = function(data){
+    flickr.photos = [];
+    flickr.numPhotos = data.photos.photo.length;
+    flickr.sizesReturn = 0;
     for(var i = 0; i < data.photos.photo.length; i++){
         var photoObj = {id: data.photos.photo[i].id, description: data.photos.photo[i].title, thumbnail: '', url: ''}
-        model.photos.push(photoObj);
-        model.getImage(photoObj);
+        flickr.photos.push(photoObj);
+        flickr.getImage(photoObj);
     }
 }
 
  /**
  * Gets the url for the different sizes of images.
  */
- model.getImage = function(photoObj){
-    var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + model.APIkey;
+ flickr.getImage = function(photoObj){
+    var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
     $.get(getSizeStr, function(data){
         //Retrive different size image
         for(var i = 0; i < data.sizes.size.length; i ++) {
@@ -57,18 +57,18 @@ model.fetchLink = function(data){
         if(photoObj.thumbnail == ''){
             photoObj.thumbnail = data.sizes.size[data.sizes.size.length -1].source;
         }
-        model.sizesReturn++;
+        flickr.sizesReturn++;
         //if we have itterated through all of the photos then display them
-        if (model.sizesReturn == model.numPhotos){
-            model.displayCallback(model.photos);
+        if (flickr.sizesReturn == flickr.numPhotos){
+            flickr.displayCallback(flickr.photos);
         }
     });
 }
 
-model.getSearch = function(){
+flickr.getSearch = function(){
     var query = $("#searchField").val().toLowerCase().trim();
-    var searchStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&text=' + query + '&per_page=20&format=json&nojsoncallback=1' + '&' + model.APIkey;
+    var searchStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&text=' + query + '&per_page=20&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
     $.get(searchStr, function(data){
-        model.fetchLink(data);
+        flickr.fetchLink(data);
     });
 }

@@ -1,12 +1,12 @@
 var controller = {};
-var model = {};
+var flickr = {};
 var view = {};
 
 $(function() {
-    model.getInteresting(view.displayThumb);
+    flickr.getInteresting(view.displayThumb);
     $("#search").submit(function(event){
         event.preventDefault();
-        model.getSearch();
+        flickr.getSearch();
     });
 
     $("#login-btn").click(function(){
