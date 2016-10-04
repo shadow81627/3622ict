@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Photo Album</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet"> 
+    <!-- Lightbox -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.css" rel="stylesheet">
+    <!-- Style sheet for the index page -->
+    <link href="style/index.css" type="text/css" rel="stylesheet"> 
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+        <button class="btn btn-default" id="back-btn">Back</button>
+        <span id="heading">My Photo Album</span>
+        <button class="btn btn-default" id="login-btn">Login</button>
+    </header>
+    
+    <div id="sideMenu" class="row">
+                 <div class="container-fluid">
+                         <div class="row sideItem"><span class="glyphicon glyphicon-home" aria-hidden="true"></span><span class="menu-text">Home</span></div>
+                         <div class="row sideItem"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><span class="menu-text">Infomation</span></div>
+                         <div class="row sideItem"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><span class="menu-text">Location</span></div>
+                 </div>
+            </div>
+            
+        <div class="container">
+            <div class="row">
+                <div  id="searchBox">
+                    <form id="search" class="form-inline" >
+                      <label id="error" for="searchField"></label>
+                      <label class="sr-only" for="searchField">Search</label>
+                      <input type="search" id="searchField" class="form-control" name="search" placeholder="Type your query here">
+                      <input type="button" id="search-btn" class="btn btn-default" value="Search">
+                    </form> 
+                </div>
+            </div>
+            
+            
+            <div id="splash" class ="row">
+                Splash screen
+                <button id="splash-btn" class="btn btn-default">Go</button>
+            </div>
+            <div id="thumbnails" class="row center-block">
+                <figure>
+                    <a href="photos/DSC01049.JPG" data-lightbox="image-1" data-title="City View">
+                        <img class="" src="photos/DSC01049.JPG" alt="City View" height="200" width="200">
+                    </a>
+                    <figcaption>City View</figcaption>
+                </figure>
+                <figure>
+                    <a href="photos/DSC01066.JPG" data-lightbox="image-1" data-title="Ferris Wheel">
+                        <img src="photos/DSC01066.JPG" alt="Ferris Wheel" height="200" width="200">
+                    </a>
+                    <figcaption>Ferris Wheel</figcaption>
+                </figure>
+                <figure>
+                    <a href="photos/DSC02511.jpg" data-lightbox="image-1" data-title="A building in the forbidden city">
+                        <img src="photos/DSC02511.jpg" alt="A building in the forbidden city" height="200" width="200">
+                    </a>
+                    <figcaption>A Building in the forbidden city with extra long text</figcaption>
+                </figure>
+                <figure>
+                    <a href="photos/DSC03810.jpg" data-lightbox="image-1" data-title="City from Mt Gravett look out">
+                        <img src="photos/DSC03810.jpg" alt="City from Mt Gravett look out" height="200" width="200">
+                    </a>
+                    <figcaption>City from Mt Gravett look out</figcaption>
+                </figure>
+                <figure>
+                    <a href="photos/DSC05750.jpg" data-lightbox="image-1" data-title="Sun rise">
+                        <img src="photos/DSC05750.jpg" alt="Sun rise" height="200" width="200">
+                    </a>
+                    <figcaption>Sun rise</figcaption>
+                </figure>
+            </div>
+        </div>
+    <footer>By Damien Robinson</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Lightbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    
+  </body>
+</html>
