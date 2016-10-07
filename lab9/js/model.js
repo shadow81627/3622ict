@@ -15,6 +15,7 @@ flickr.displayCallback;
 flickr.getInteresting = function(displayCallback) {
     flickr.displayCallback = displayCallback;
    var interestingStr = 'https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&per_page=20&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
+   interestingStr = flickrAuth.signRequest(interestingStr);
    $.get(interestingStr, function(data){
         flickr.fetchLink(data);
     });
@@ -41,6 +42,7 @@ flickr.fetchLink = function(data){
  */
  flickr.getImage = function(photoObj){
     var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
+    getSizeStr = flickrAuth.signRequest(getSizeStr);
     $.get(getSizeStr, function(data){
         //Retrive different size image
         for(var i = 0; i < data.sizes.size.length; i ++) {
@@ -68,6 +70,7 @@ flickr.fetchLink = function(data){
 flickr.getSearch = function(){
     var query = $("#searchField").val().toLowerCase().trim();
     var searchStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&text=' + query + '&per_page=20&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
+    searchStr = flickrAuth.signRequest(searchStr);
     $.get(searchStr, function(data){
         flickr.fetchLink(data);
     });
