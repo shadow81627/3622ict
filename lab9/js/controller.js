@@ -1,5 +1,6 @@
 var controller = {};
 var flickr = {};
+flickrAuth = {};
 var view = {};
 
 $(function() {
