@@ -7,10 +7,8 @@ flickrAuth.SECRET = "2b4fb28819195ca9";
 flickrAuth.signRequest = function(url) {
     //splits base url from parameter
     var urlBits = url.split('?');
-    console.log(urlBits);
     //splits parameter
     var params = urlBits[1].split('&');
-    console.log(params);
     params = params.sort();
     
     //iterate over the string and remove the equal character
@@ -19,13 +17,12 @@ flickrAuth.signRequest = function(url) {
     }
     //rejoin the parameters into a single string
     var strToSign = params.join('');
-    console.log(strToSign);
     
+    //add secret to string to sign
     strToSign = flickrAuth.SECRET + strToSign;
-    console.log(strToSign);
+    //hash the string
     var digest = CryptoJS.MD5(strToSign);
-    console.log(digest);
+    //add hash as parameter to original request url
     var signedURL = url + '&api_sig=' + digest;
-    console.log(signedURL);
     return signedURL;
 }
