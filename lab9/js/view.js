@@ -10,11 +10,4 @@ view.displayThumb = function(result) {
     $( "figure" ).draggable();
 }
 
-/**
- * Displays a popup box saying this button doesnt work yet.
- */
-view.loginAlert = function() {
-    alert(" this feature is not available yet");
-} 
-
 $( "figure" ).draggable();

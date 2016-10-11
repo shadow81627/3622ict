@@ -1,9 +1,10 @@
 var controller = {};
 var flickr = {};
-flickrAuth = {};
+var flickrAuth = {};
 var view = {};
 
 $(function() {
+    
     flickr.getInteresting(view.displayThumb);
     $("#search").submit(function(event){
         event.preventDefault();
@@ -11,7 +12,7 @@ $(function() {
     });
 
     $("#login-btn").click(function(){
-        view.loginAlert();
+        flickrAuth.login();
     });
     
     /**

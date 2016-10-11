@@ -26,3 +26,17 @@ flickrAuth.signRequest = function(url) {
     var signedURL = url + '&api_sig=' + digest;
     return signedURL;
 }
+
+flickrAuth.login = function(){
+    var getFrobStr =' https://api.flickr.com/services/rest/?method=flickr.auth.getFrob&format=json&nojsoncallback=1&' + flickr.APIkey;
+    getFrobStr = flickrAuth.signRequest(getFrobStr);
+    $.get(getFrobStr, function(data){
+        flickrAuth.frob = data.frob._content;
+        var authLink = "http://flickr.com/services/auth/?" + flickr.APIkey + "&perms=write&frob=" + flickrAuth.frob;
+        authLink = flickrAuth.signRequest(authLink);
+        window.open(authLink);
+        console.log(authLink);
+        alert(" this feature is not available yet");
+        console.log("User has signed in");
+    });
+}
