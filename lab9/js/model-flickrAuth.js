@@ -28,15 +28,19 @@ flickrAuth.signRequest = function(url) {
 }
 
 flickrAuth.login = function(){
-    var getFrobStr =' https://api.flickr.com/services/rest/?method=flickr.auth.getFrob&format=json&nojsoncallback=1&' + flickr.APIkey;
-    getFrobStr = flickrAuth.signRequest(getFrobStr);
+    //fuck spaces 
+    var getFrobStr = ' https://api.flickr.com/services/rest/?method=flickr.auth.getFrob&format=json&nojsoncallback=1&' + flickr.APIkey;
+    getFrobStr = flickrAuth.signRequest(getFrobStr.trim());
     $.get(getFrobStr, function(data){
         flickrAuth.frob = data.frob._content;
         var authLink = "http://flickr.com/services/auth/?" + flickr.APIkey + "&perms=write&frob=" + flickrAuth.frob;
         authLink = flickrAuth.signRequest(authLink);
         window.open(authLink);
-        console.log(authLink);
         alert(" this feature is not available yet");
         console.log("User has signed in");
+        var tokenStr = flickrAuth.signRequest('https://api.flickr.com/services/rest/?method=flickr.auth.getToken&format=json&nojsoncallback=1&' + flickr.APIkey + '&frob=' + flickrAuth.frob);
+        $.get(tokenStr, function(data){
+            controller.getUsername(data.auth.user.username);
+        });
     });
 }

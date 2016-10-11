@@ -37,4 +37,9 @@ $(function() {
          $("#back-btn").hide();
      });
      
+    
 });
+
+controller.getUsername = function(username){
+    view.displayUser(username);
+}

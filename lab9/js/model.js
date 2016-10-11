@@ -40,7 +40,7 @@ flickr.fetchLink = function(data){
  /**
  * Gets the url for the different sizes of images.
  */
- flickr.getImage = function(photoObj){
+flickr.getImage = function(photoObj){
     var getSizeStr = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&photo_id=' + photoObj.id + '&format=json&nojsoncallback=1' + '&' + flickr.APIkey;
     getSizeStr = flickrAuth.signRequest(getSizeStr);
     $.get(getSizeStr, function(data){

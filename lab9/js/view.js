@@ -11,3 +11,7 @@ view.displayThumb = function(result) {
 }
 
 $( "figure" ).draggable();
+
+view.displayUser = function(username){
+   $('#login-btn').replaceWith($('<p id="login-btn">' + username + '</p>'));
+}
