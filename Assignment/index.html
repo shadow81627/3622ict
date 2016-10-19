@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,9 +18,8 @@
     <![endif]-->
   </head>
   <body>
-    <div class="view-animate-container">
-      <div ng-view class="view-animate"></div>
-    </div>
+    <a href="#splash">splash</a>
+    <div ng-view></div>
 
     <!-- jQuery JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -29,6 +28,10 @@
     <!-- Bootlint JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js"></script>
     <!-- Angular JavaScript -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    
+    <!-- My scripts-->
+    <script src="app.js"></script>
   </body>
 </html>
