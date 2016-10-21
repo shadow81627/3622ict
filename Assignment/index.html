@@ -37,7 +37,9 @@
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <a ng-controller="loginController" href="{{ loginURL }}">
+              <button type="submit" class="btn btn-success">Sign in</button>
+            </a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -65,5 +67,6 @@
     
     <!-- My scripts-->
     <script src="app.js"></script>
+    <script src="facebook-login.js"></script>
   </body>
 </html>
