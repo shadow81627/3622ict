@@ -16,7 +16,7 @@ app.config(function($routeProvider) {
 
 controllers.loginController = function($scope) {
   var APP_ID = "342478882810704";
-  var APP_URL = "https://s5014219-s5014219.c9users.io/3622ICT/Assignment/";
+  var APP_URL = "http://dwarf.ict.griffith.edu.au/~s5014219/3622ict/Assignment/";
   $scope.loginURL = "https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token";
 };
 
