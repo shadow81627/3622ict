@@ -14,10 +14,9 @@ app.config(function($routeProvider) {
     });
 });
 
-controllers.loginController = function($scope) {
-  var APP_ID = "342478882810704";
-  var APP_URL = "https://s5014219-s5014219.c9users.io/3622ICT/Assignment/";
-  $scope.loginURL = "https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token";
+controllers.loginController = function($scope, facebook) {
+  $scope.loginURL = facebook.loginURL;
+  
 };
 
 app.controller(controllers);
