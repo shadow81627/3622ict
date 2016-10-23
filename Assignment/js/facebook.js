@@ -27,7 +27,6 @@
             for (var k = 0; k < paramsValue.length; k++){
               if (paramsValue[k].includes('access_token')){
                 facebook.access_token = paramsValue[k+1];
-                console.log(paramsValue[k+1]);
               }
             }
         }
@@ -38,6 +37,5 @@
       return true;
     } else {  // start user authentication
       window.location.replace(facebook.loginURL);
-      console.log(facebook.access_token);
     }
   };
