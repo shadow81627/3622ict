@@ -35,18 +35,7 @@
             <a  href="{{ loginURL }}">memes</a>
             <button id="login-btn" ng-click="login()" class="btn btn-success">Login</button>
             <button id="logout-btn" ng-click="logout()" class="btn btn-success">Logout</button>
-            <!--
-              Below we include the Login Button social plugin. This button uses
-              the JavaScript SDK to present a graphical Login button that triggers
-              the FB.login() function when clicked.
-            -->
-            
-            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-            </fb:login-button>
-            
-            <div id="status">
-            </div>
-            
+            <fb:login-button data-auto-logout-link="true" scope="public_profile,email"></fb:login-button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -58,7 +47,7 @@
     <div ng-view></div>
     
     <!-- jQuery JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <!-- Boostrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Bootlint JavaScript -->
