@@ -12,19 +12,25 @@
     if (facebook.access_token == "") {
       // attempts to get access token from the current URL.
       var url = window.location.href;
-
-      //splits base url from parameter
-      var urlBits = url.split('?');
-      //splits parameter
-      var params = urlBits[1].split('&');
-      params = params.sort();
       
-      //iterate over the string and remove the equal character
-      for (var i = 0; i < params.length; i++){
-          paramsValue = params[i].split('=');
-          if (paramsValue[0].includes('access_token')){
-          }
-          
+      if (url.includes('?')){
+        //splits base url from parameter
+        var urlBits = url.split('?');
+        console.log(urlBits);
+        //splits parameter
+        var params = urlBits[1].split('&');
+        params = params.sort();
+        
+        //iterate over the string and remove the equal character
+        for (var i = 0; i < params.length; i++){
+            var paramsValue = params[i].split('=');
+            for (var k = 0; k < paramsValue.length; k++){
+              if (paramsValue[k].includes('access_token')){
+                facebook.access_token = paramsValue[k+1];
+                console.log(paramsValue[k+1]);
+              }
+            }
+        }
       }
     }
     if (facebook.access_token != "") {
@@ -32,5 +38,6 @@
       return true;
     } else {  // start user authentication
       window.location.replace(facebook.loginURL);
+      console.log(facebook.access_token);
     }
   };
