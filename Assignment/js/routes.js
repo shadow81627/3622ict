@@ -3,7 +3,7 @@ app.config(function($routeProvider) {
     .when("/", {
         templateUrl : "Views/splash.html"
     })
-    .when("/splash", {
+    .when("/content", {
       templateUrl : "Views/content.html"
     })
     .otherwise({
