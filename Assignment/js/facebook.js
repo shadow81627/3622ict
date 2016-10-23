@@ -12,7 +12,7 @@
     if (facebook.access_token == "") {
       // attempts to get access token from the current URL.
       var url = window.location.href;
-      
+      console.log(url);
       if (url.includes('?')){
         //splits base url from parameter
         var urlBits = url.split('?');
@@ -27,6 +27,7 @@
             for (var k = 0; k < paramsValue.length; k++){
               if (paramsValue[k].includes('access_token')){
                 facebook.access_token = paramsValue[k+1];
+                console.log(paramsValue[k+1]);
               }
             }
         }
@@ -36,6 +37,7 @@
       // access token is available
       return true;
     } else {  // start user authentication
-      window.location.replace(facebook.loginURL);
+      //window.location.replace(facebook.loginURL);
+      console.log(facebook.access_token + "memes");
     }
   };
