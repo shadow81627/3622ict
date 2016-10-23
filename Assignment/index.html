@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app" ng-controller="appController">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,13 +25,14 @@
         </div>
         <div id="navbar" class="">
           <form data-ng-controller="LoginController" class="navbar-form navbar-right">
-            <a href="#/content" class="fb-login-button" onLogin="FBLogin()" data-size="large" data-show-faces="false" data-auto-logout-link="true"></a>
+            <div class="fb-login-button" onLogin="facebook.FBLogin()" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+            <!-- <button class="fb-login-button" ng-click="login()" data-size="large" data-show-faces="false" data-auto-logout-link="true"></button> -->
           </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+    <div ng-controller="appController" class="jumbotron">
       <a href="#/content">Content</a>
     </div>
     
@@ -53,9 +54,10 @@
     
     <!-- My scripts-->
     <script src="js/app.js"></script>
-    <script src="js/facebook.js"></script>
+    <!-- <script src="js/facebook.js"></script> -->
     <script src="js/routes.js"></script>
     <script src="js/loginController.js"></script>
+    <script src="js/appController.js"></script>
 
   </body>
 </html>
