@@ -31,10 +31,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form ng-controller="loginController" class="navbar-form navbar-right">
-            
-            <a  href="{{ loginURL }}">memes</a>
-            <button id="login-btn" ng-click="login()" class="btn btn-success">Login</button>
-            <button id="logout-btn" ng-click="logout()" class="btn btn-success">Logout</button>
             <fb:login-button data-auto-logout-link="true" scope="public_profile,email"></fb:login-button>
           </form>
         </div><!--/.navbar-collapse -->
