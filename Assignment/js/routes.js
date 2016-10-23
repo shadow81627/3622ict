@@ -7,6 +7,6 @@ app.config(function($routeProvider) {
       templateUrl : "Views/content.html"
     })
     .otherwise({
-        templateUrl : "Views/splash.html"
+        templateUrl : "Views/wot.html"
     });
 });

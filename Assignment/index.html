@@ -25,7 +25,7 @@
         </div>
         <div id="navbar" class="">
           <form data-ng-controller="LoginController" class="navbar-form navbar-right">
-            <div class="fb-login-button" data-ng-click="content()" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+            <a href="#/content"><div class="fb-login-button" onLogin="FBLogin()" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div></a>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
