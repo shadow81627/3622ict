@@ -2,6 +2,7 @@ var controller = {};
 var flickr = {};
 var flickrAuth = {};
 var view = {};
+var facebook = {};
 
 $(function() {
     
@@ -12,7 +13,8 @@ $(function() {
     });
 
     $("#login-btn").click(function(){
-        flickrAuth.login();
+        facebook.getToken();
+        console.log(facebook.access_token);
     });
     
     /**

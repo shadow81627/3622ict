@@ -1,6 +1,7 @@
-var app = angular.module("app", ["ngRoute", "facebook"]);
+var app = angular.module("app", ["ngRoute"]);
 
 var controllers = {};
+var facebook = {};
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -15,17 +16,11 @@ app.config(function($routeProvider) {
     });
 });
 
-controllers.loginController = function($scope, facebook) {
-  //The Identifier for this app
-  APP_ID = "342478882810704";
-  //The URL for the app
-  APP_URL = "https://s5014219-s5014219.c9users.io/3622ICT/Assignment/";
-  
-  $scope.loginURL = "https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token";
+controllers.loginController = function($scope) {
 
-  $scope.login = function() {
-    window.location.replace("https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token");
-  }
+  $scope.loginURL = facebook.loginURL;
+
+  $scope.login = facebook.getToken();
 };
 
 app.controller(controllers);
