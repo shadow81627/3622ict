@@ -8,6 +8,18 @@ $(document).ready(function() {
         xfbml      : true,  // parse social plugins on this page
         version    : 'v2.8' // use graph api version 2.5
     });
-    
+    FBLogin = function() {
+      FB.getLoginStatus(function(response) {
+        if (response.authResponse) {
+         console.log('Welcome!  Fetching your information.... ');
+         window.location = window.location.href + "content";
+         FB.api('/me', function(response) {
+           console.log('Good to see you, ' + response.name + '.');
+         });
+        } else {
+         console.log('User cancelled login or did not fully authorize.');
+        }
+      });
+    };
   });
 }); 
