@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
     });
 });
 
-controllers.loginController = function($scope) {
+controllers.loginController = function($scope, facebook) {
   //The Identifier for this app
   APP_ID = "342478882810704";
   //The URL for the app
