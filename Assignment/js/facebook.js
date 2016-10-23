@@ -20,27 +20,31 @@ $(document).ready(function() {
          
          FB.api('/815157038515764', {fields: 'description, albums'}, function(response) {
            //get the description of the DMS travel page
-           console.log(response.description);
            facebook.description = response.description;
+           $('#description').html(facebook.description);
            //get the albums
            facebook.albums =response.albums;
            facebook.destinations = [];
+           var htmlStr = '';
            for(var i = 0; i < facebook.albums.data.length; i++){
-            console.log(facebook.albums.data[i]);
             //get the album by id
-            FB.api('/'+ facebook.albums.data[i].id, {fields: 'location'}, function(response) {
+            FB.api('/'+ facebook.albums.data[i].id, {fields: 'location, cover_photo, photos'}, function(response) {
               //if the album location contains the word Australia then add it to destinations
-              console.log(response);
-              if(response.location != "" && response.location.includes("Australia")){
-                facebook.destinations.push(response);
-                console.log("stuff");
+              if( typeof response.location !== "undefined" && response.location.includes("Australia")){
+                var destination = response
+                FB.api('/'+ destination.cover_photo_id, {fields: 'images'}, function(response) {
+                    for(var j = 0; j < response.images.length; j++){
+                        if(response.images[j].height == '320'){
+                            htmlStr +=  '<figure><a href="' + response.images[j].source + '" data-lightbox="image-1" data-title="' + destination.cover_photo.name + '"><img src="' + response.images[j].source +  '" alt="' + destination.cover_photo.name + '" height="200" width="200"></a><figcaption>' + destination.cover_photo.name + '</figcaption></figure>';
+                        }
+                    }
+                });
               }else{
                 facebook.albums.data[i].pop();
               }
             });
            }
-           console.log(facebook.destinations);
-           console.log(facebook.albums.data)
+           $('#figures').html(htmlStr);
          });
         } else {
          console.log('User cancelled login or did not fully authorize.');
