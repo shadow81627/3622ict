@@ -1,13 +1,5 @@
-app.controller('LoginController', function($scope, $location, $window) {
-    
-    //$scope.login= facebookFactory;
-    /*
-    if(facebook.status === 'connected'){
-        $location.path( '/content' );
-    }else {
-        $location.path( '/splash' );
-    }*/
-    
+/*app.controller('LoginController', function($scope, $location, $window) {
+
     $window.fbAsyncInit = function() {
         FB.init({ 
           appId: '342478882810704',
@@ -17,8 +9,7 @@ app.controller('LoginController', function($scope, $location, $window) {
           version: 'v2.8'
         });
         
-    facebook.FBLogin = function() {
-      FB.getLoginStatus(function(response) {
+    FBLogin = function() {
         if (response.authResponse) {
          $location.path( '/content' );
          console.log('Welcome!  Fetching your information.... ');
@@ -30,7 +21,7 @@ app.controller('LoginController', function($scope, $location, $window) {
          FB.api('/815157038515764', {fields: 'description, albums'}, function(response) {
            //get the description of the DMS travel page
            console.log(response.description);
-           facebook.description = response.description;
+           $scope.description = response.description;
            //get the albums
            facebook.albums =response.albums;
            facebook.destinations = [];
@@ -40,7 +31,7 @@ app.controller('LoginController', function($scope, $location, $window) {
             //get the album by id
             FB.api('/'+ facebook.albums.data[i].id, {fields: 'location'}, function(response) {
               //if the album location contains the word Australia then add it to destinations
-              //console.log(response);
+              console.log(response);
               if(response.location != "" && response.location.includes("Australia")){
                 facebook.destinations.push(response);
                 console.log("stuff");
@@ -72,4 +63,4 @@ app.controller('LoginController', function($scope, $location, $window) {
    
    
 
-});
+});*/

@@ -30,7 +30,7 @@ $(document).ready(function() {
             //get the album by id
             FB.api('/'+ facebook.albums.data[i].id, {fields: 'location'}, function(response) {
               //if the album location contains the word Australia then add it to destinations
-              //console.log(response);
+              console.log(response);
               if(response.location != "" && response.location.includes("Australia")){
                 facebook.destinations.push(response);
                 console.log("stuff");
@@ -51,4 +51,5 @@ $(document).ready(function() {
     
     
   });
+  $('#description').html(facebook.description);
 }); 
