@@ -23,13 +23,13 @@
         
         //iterate over the string and remove the equal character
         for (var i = 0; i < params.length; i++){
-            var paramsValue = params[i].split('=');
-            for (var k = 0; k < paramsValue.length; k++){
-              if (paramsValue[k].includes('access_token')){
-                facebook.access_token = paramsValue[k+1];
-                console.log(paramsValue[k+1]);
-              }
+          var paramsValue = params[i].split('=');
+          for (var k = 0; k < paramsValue.length; k++){
+            if (paramsValue[k].includes('access_token')){
+              facebook.access_token = paramsValue[k+1];
+              console.log(paramsValue[k+1]);
             }
+          }
         }
       }
     }
