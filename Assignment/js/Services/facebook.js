@@ -1,20 +1,14 @@
-app.factory('facebook', function() {
   //The Identifier for this app
-  var APP_ID = "342478882810704";
+  facebook.APP_ID = "342478882810704";
   //The URL for the app
-  var APP_URL = "https://s5014219-s5014219.c9users.io/3622ICT/Assignment/";
+  facebook.APP_URL = "https://s5014219-s5014219.c9users.io/3622ICT/Assignment/";
   //The facebook login url for this app
-  var loginURL = "https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token";
-  
-  var factory = {};
-  factory.getLogin = function(){
-    return loginURL;
-  }
+  facebook.loginURL = "https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL + "&response_type=token";
   
   //the varible used to store the access token retruned by facebook
-  var access_token = "";
+  facebook.access_token = "";
   
-  factory.getToken = function(){
+  facebook.getToken = function(){
     if (access_token == "") {
       // attempts to get access token from the current URL.
       var currentURL = window.location.href;
@@ -32,4 +26,3 @@ app.factory('facebook', function() {
       window.location.replace(loginURL);
     }
   };
-});
